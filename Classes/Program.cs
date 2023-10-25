@@ -22,7 +22,22 @@ namespace Classes
             productManager.Add();
             productManager.Update();
 
+            // Sınıflar property(özellik) denilen nesneleri tutar.
+            Customer customer = new Customer(); //Sınıf örnek oluşturma 1. Yöntem
+            customer.City = "Rize";
+            customer.FirstName = "Nergis"; // set bloğu çalışır. değer verilir.(yazma)
+            customer.LastName = "Ketenci";
+            customer.Id = 1;
 
+            Customer customer2= new Customer //Sınıf örnek oluşturma 2. Yöntem
+            { 
+                Id = 2,
+                City="Rize",
+                FirstName="Furkan",
+                LastName="Ketenci"
+            };
+
+            Console.WriteLine(customer2.FirstName); // get bloğu çalışır. verilen değer alınır.(okuma)
 
             Console.ReadLine();
 
