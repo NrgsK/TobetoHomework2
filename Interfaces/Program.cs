@@ -17,6 +17,11 @@ namespace Interfaces
             //IPerson person = new Customer();
             //Böyle bir örnekleme yapabiliriz.
 
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new SqlServerCustomerDal());
+            customerManager.Add(new OracleServerCustomerDal());
+            //Interface katmanlar arası geçişlerde yoğun bir şekilde kullanılır.
+            //Amaç uygulamayı mümkü olduğunca bağımsız hale getirmek.
 
             Console.ReadLine();
         }
