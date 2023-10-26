@@ -54,6 +54,15 @@ namespace Interfaces
         public string Department { get; set; } // Öğrenciye ait ayrı bir özellik
     }
 
+    class Worker : IPerson
+    {
+        // Somut nesne
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Department { get; set; } // İşçiye ait ayrı bir özellik
+    }
+
     class PersonManager
     {
         public void Add(IPerson person)
