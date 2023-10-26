@@ -12,18 +12,34 @@ namespace Interfaces
         {
             // Interface isimlendirme standardı "I" ile başlamasıdır.
             //InterfacesIntro();
-
+            //Demo();
             // Bir interface hiçbir zaman örneklenemez. Çünkü tek başına bir anlamı yoktur. (IPerson person = new IPerson(); --> YAPAMAYIZ)
             //IPerson person = new Customer();
             //Böyle bir örnekleme yapabiliriz.
 
-            CustomerManager customerManager = new CustomerManager();
-            customerManager.Add(new SqlServerCustomerDal());
-            customerManager.Add(new OracleServerCustomerDal());
+
             //Interface katmanlar arası geçişlerde yoğun bir şekilde kullanılır.
             //Amaç uygulamayı mümkü olduğunca bağımsız hale getirmek.
 
+            ICustomerDal[] customerDals = new ICustomerDal[3] 
+            { 
+                new SqlServerCustomerDal(),
+                new OracleServerCustomerDal(),
+                new MySqlServerCustomerDal()
+            
+            };
+            foreach (var customerDal in customerDals)
+            {
+                customerDal.Add();
+            }
             Console.ReadLine();
+        }
+
+        private static void Demo()
+        {
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new SqlServerCustomerDal());
+            customerManager.Add(new OracleServerCustomerDal());
         }
 
         private static void InterfacesIntro()
