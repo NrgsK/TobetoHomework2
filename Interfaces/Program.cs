@@ -11,6 +11,18 @@ namespace Interfaces
         static void Main(string[] args)
         {
             // Interface isimlendirme standardı "I" ile başlamasıdır.
+            //InterfacesIntro();
+
+            // Bir interface hiçbir zaman örneklenemez. Çünkü tek başına bir anlamı yoktur. (IPerson person = new IPerson(); --> YAPAMAYIZ)
+            //IPerson person = new Customer();
+            //Böyle bir örnekleme yapabiliriz.
+
+
+            Console.ReadLine();
+        }
+
+        private static void InterfacesIntro()
+        {
             PersonManager manager = new PersonManager();
 
             //Customer customer= new Customer{ Id = 1, FirstName = "Nergis", LastName = "Ketenci", Adress = "Rize" };
@@ -24,7 +36,6 @@ namespace Interfaces
             };
             manager.Add(new Customer { Id = 1, FirstName = "Nergis", LastName = "Ketenci", Adress = "Rize" });
             manager.Add(student);
-            Console.ReadLine();
         }
     }
     interface IPerson
